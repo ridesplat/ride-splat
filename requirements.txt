@@ -1,0 +1,13 @@
+# Install PyTorch with CUDA first, matching your CUDA toolkit, for example:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+# then build the 3DGS extensions with scripts/install_3dgs.sh.
+plyfile
+joblib
+tqdm
+numpy
+scipy
+pillow
+opencv-python-headless
+scikit-image
+lpips
+pytest
