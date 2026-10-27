@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # RIDE-Splat on the three RIDE-Splat Dataset scenes, then a table next to the paper's numbers.
-# About 1.5 GPU-hours per scene on an A100.
+# Two 30k-iteration passes per scene, roughly 1.5 to 3 hours per scene on one A100.
 #
 #   bash scripts/reproduce_ridesplat_dataset.sh [data root] [output root]
 set -euo pipefail

@@ -83,8 +83,8 @@ only. Neither term is used when rendering held-out views.
 bash scripts/reproduce_ridesplat_dataset.sh
 ```
 
-This runs all three scenes (about 1.5 GPU-hours each on an A100) and prints them next to the paper's
-numbers:
+This runs all three scenes (two 30k-iteration passes each, roughly 1.5 to 3 hours per scene on one
+A100) and prints them next to the paper's numbers:
 
 | Scene | PSNR | SSIM | LPIPS |
 |---|---|---|---|
