@@ -27,6 +27,12 @@ def add_gs_to_path():
     return root
 
 
+def frame_stem(image_name):
+    """'eval_c00000.png' -> 'eval_c00000'. 3DGS keeps the file extension in a camera's image_name."""
+    root, ext = os.path.splitext(image_name)
+    return root if ext.lower() in (".png", ".jpg", ".jpeg") else image_name
+
+
 def split_by_prefix(cams, prefix=EVAL_PREFIX):
     """Split camera infos into (train, test): names starting with `prefix` are held out.
 

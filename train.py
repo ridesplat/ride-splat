@@ -21,7 +21,7 @@ import torch
 import torchvision
 from tqdm import tqdm
 
-from ridesplat.backbone import add_gs_to_path, install_prefix_split, seed_everything
+from ridesplat.backbone import add_gs_to_path, frame_stem, install_prefix_split, seed_everything
 
 add_gs_to_path()
 install_prefix_split()
@@ -206,7 +206,7 @@ def render_held_out(scene, gaussians, pipe, background, dataset, out_dir):
             seen.add(cam.image_name)
             image = render(cam, gaussians, pipe, background, use_trained_exp=dataset.train_test_exp,
                            separate_sh=SPARSE_ADAM_AVAILABLE)["render"]
-            torchvision.utils.save_image(torch.clamp(image, 0.0, 1.0), os.path.join(out_dir, f"{cam.image_name}.png"))
+            torchvision.utils.save_image(torch.clamp(image, 0.0, 1.0), os.path.join(out_dir, frame_stem(cam.image_name) + ".png"))
     print(f"[render] wrote {len(seen)} held-out views to {out_dir}")
     if not seen:
         sys.exit("No held-out views were rendered. Train with --eval on a scene that has eval_* frames.")

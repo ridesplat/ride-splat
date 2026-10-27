@@ -16,6 +16,12 @@ class SceneInfo(NamedTuple):
     test_cameras: list
 
 
+def test_frame_stem_drops_the_image_extension():
+    assert backbone.frame_stem("eval_c00000.png") == "eval_c00000"
+    assert backbone.frame_stem("eval_c00000") == "eval_c00000"
+    assert backbone.frame_stem("frame.v2.JPG") == "frame.v2"
+
+
 def test_split_by_prefix_holds_out_eval_frames():
     cams = [Cam("train_r00001"), Cam("eval_c00000"), Cam("train_r00000"), Cam("eval_c00000")]
     train, test = backbone.split_by_prefix(cams)

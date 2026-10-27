@@ -25,8 +25,16 @@ def read_rgb(path):
     return cv2.cvtColor(bgr, cv2.COLOR_BGR2RGB).astype(np.float32) / 255.0
 
 
+def stem(filename):
+    """File name without its image extension; 'x.png.png' (a 3DGS image_name plus .png) -> 'x'."""
+    name = filename
+    while name.lower().endswith(IMAGE_EXTS):
+        name = os.path.splitext(name)[0]
+    return name
+
+
 def images_by_stem(folder):
-    return {os.path.splitext(f)[0]: os.path.join(folder, f)
+    return {stem(f): os.path.join(folder, f)
             for f in sorted(os.listdir(folder)) if f.lower().endswith(IMAGE_EXTS)}
 
 

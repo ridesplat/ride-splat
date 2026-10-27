@@ -28,3 +28,13 @@ def test_scores_pairs_by_name(tmp_path):
     mse = np.mean((noisy.astype(np.float32) / 255 - clean.astype(np.float32) / 255) ** 2)
     assert math.isclose(off["PSNR"], 10 * math.log10(1 / mse), rel_tol=1e-5)
     assert result["summary"]["n"] == 2
+
+
+def test_doubled_extension_still_pairs(tmp_path):
+    pred, gt = tmp_path / "pred", tmp_path / "gt"
+    pred.mkdir()
+    gt.mkdir()
+    img = np.zeros((40, 48, 3), dtype=np.uint8)
+    write(gt / "eval_c00000.png", img)
+    write(pred / "eval_c00000.png.png", img)
+    assert evaluate.evaluate(str(pred), str(gt), use_lpips=False)["summary"]["n"] == 1
