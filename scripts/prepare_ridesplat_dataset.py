@@ -14,8 +14,8 @@ import urllib.request
 import zipfile
 from argparse import ArgumentParser
 
-RELEASE_URL = ("https://github.com/ridesplat/ride-splat-dataset/releases/download/"
-               "v0.1-preliminary/ride-splat-dataset-v0.1.zip")
+RELEASE_URL = ("https://github.com/ridesplat/ride-splat/releases/download/"
+               "dataset-v0.1/ride-splat-dataset-v0.1.zip")
 
 
 def colmap_image_names(images_bin):

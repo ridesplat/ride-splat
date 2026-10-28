@@ -5,6 +5,10 @@ by Inria and the Max Planck Institut for Informatik (MPII), and is distributed u
 Gaussian-Splatting License reproduced below, which permits non-commercial research and evaluation use
 only. RIDE-Splat also runs that software, fetched by `scripts/install_3dgs.sh`, under the same license.
 
+The RIDE-Splat Dataset, the archive `ride-splat-dataset-v0.1.zip` attached to this repository's
+releases, is released under the Creative Commons Attribution 4.0 International License (CC BY 4.0),
+https://creativecommons.org/licenses/by/4.0/.
+
 All other files in this repository are released under the MIT License:
 
 ```
